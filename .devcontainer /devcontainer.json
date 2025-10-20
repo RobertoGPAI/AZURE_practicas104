@@ -1,0 +1,40 @@
+{
+  "name": "Azure Functions con Azurite",
+
+  // 1. La imagen base ya incluye Node.js y Azure Functions Core Tools
+  "image": "mcr.microsoft.com/devcontainers/azure-functions/node:4-18",
+
+  "features": {
+    // 2. Añadimos la "feature" de Azurite.
+    // Esto descargará, instalará Y EJECUTARÁ Azurite automáticamente.
+    "ghcr.io/devcontainers-contrib/features/azurite:1": {
+      "version": "latest"
+    }
+  },
+
+  // 3. Reenvío de puertos
+  "forwardPorts": [
+    7071,    // Puerto estándar de Azure Functions
+    10000,   // Puerto de Azurite Blob
+    10001,   // Puerto de Azurite Queue
+    10002    // Puerto de Azurite Table
+  ],
+
+  // 4. Opcional: Etiquetas para los puertos en la UI de Codespaces
+  "portsAttributes": {
+    "7071": { "label": "Functions Host" },
+    "10000": { "label": "Azurite Blob" },
+    "10001": { "label": "Azurite Queue" },
+    "10002": { "label": "Azurite Table" }
+  },
+
+  // 5. Instalar extensiones de VS Code recomendadas
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-azurefunctions",
+        "ms-azuretools.vscode-azurestorage"
+      ]
+    }
+  }
+}
