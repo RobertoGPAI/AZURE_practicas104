@@ -5,7 +5,10 @@
   "image": "mcr.microsoft.com/devcontainers/azure-functions/node:4-18",
 
   "features": {
-    // 2. Añadimos la "feature" de Azurite.
+    "ghcr.io/devcontainers/features/azure-cli:1": {
+      "version": "latest"
+    },
+      // 2. Añadimos la "feature" de Azurite.
     // Esto descargará, instalará Y EJECUTARÁ Azurite automáticamente.
     "ghcr.io/devcontainers-contrib/features/azurite:1": {
       "version": "latest"
@@ -32,6 +35,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "ms-vscode.azure-account",
         "ms-azuretools.vscode-azurefunctions",
         "ms-azuretools.vscode-azurestorage"
       ]
